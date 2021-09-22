@@ -42,10 +42,10 @@ export default function Entry({ itemData }) {
       {/* render details about all other entities in persons.json related to id */}
       <div className="list-group col-6">
         {/* check for existence of itemData.related property */}
-        {itemData ? 
+        {itemData.related ? 
           <h2>Related Persons</h2>
         :null }
-        {itemData && 
+        {itemData.related ?
           itemData.related.map(
             ({ id, name }) => (
               <Link key={id} href={`/${id}`}>
@@ -53,7 +53,7 @@ export default function Entry({ itemData }) {
               </Link>
             )
           )
-          
+        :null
         }
         {/* using expression ? ... : null */}
       </div>
